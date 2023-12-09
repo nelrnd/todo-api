@@ -14,5 +14,8 @@ main().catch((err) => console.error(err))
 
 app.get("/", (req, res) => res.send("Hello World!"))
 
+const taskRouter = require("./routes/task")
+app.use("/tasks", taskRouter)
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
