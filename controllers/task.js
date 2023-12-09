@@ -20,10 +20,10 @@ exports.task_create = async (req, res, next) => {
 
 exports.task_update = async (req, res, next) => {
   const { taskId } = req.params
-  const { name, done_timestamp } = req.body
+  const { name, done } = req.body
   const updatedTask = await Task.findByIdAndUpdate(
     taskId,
-    { name, done_timestamp },
+    { name, done },
     { new: true }
   )
   res.json(updatedTask)
