@@ -1,0 +1,27 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "API for todo list app",
+  "main": "app.js",
+  "scripts": {
+    "devstart": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelrnd/todo-api.git"
+  },
+  "author": "Nel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nelrnd/todo-api/issues"
+  },
+  "homepage": "https://github.com/nelrnd/todo-api#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
