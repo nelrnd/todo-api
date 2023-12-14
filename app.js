@@ -17,8 +17,10 @@ main().catch((err) => console.error(err))
 app.get("/", (req, res) => res.send("Hello World!"))
 
 const apiRouter = express.Router()
+const authRouter = require("./routes/auth")
 const taskRouter = require("./routes/task")
 app.use("/api", apiRouter)
+apiRouter.use("/", authRouter)
 apiRouter.use("/tasks", taskRouter)
 
 const PORT = process.env.PORT || 3000
