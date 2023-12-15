@@ -63,7 +63,13 @@ exports.login = [
   body("email").exists().withMessage("Email is required"),
   body("password").exists().withMessage("Password is required"),
   async (req, res, next) => {
+    const errors = validationResult(req)
     const { email, password } = req.body
+    if (!errors.isEmpty()) {
+      return res
+        .status(400)
+        .json({ errors: errors.array(), user: { email, password } })
+    }
     const user = await User.findOne({ email: email }).exec()
     if (user) {
       const match = await bcrypt.compare(password, user.password)
@@ -73,7 +79,9 @@ exports.login = [
         return res.status(200).json({ token })
       }
     }
-    return res.status(401).json({ message: "Auth failed" })
+    return res.status(401).json({
+      errors: [{ path: "password", msg: "Invalid email or password" }],
+    })
   },
 ]
 
