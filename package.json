@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "API for todo list app",
   "main": "app.js",
+  "engines": {
+    "node": ">=20.10.0"
+  },
   "scripts": {
     "devstart": "nodemon app"
   },
