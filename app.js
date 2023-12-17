@@ -23,8 +23,6 @@ const mongoDB = process.env.MONGODB_URI
 const main = async () => mongoose.connect(mongoDB)
 main().catch((err) => console.error(err))
 
-app.get("/", (req, res) => res.send("Hello World!"))
-
 const apiRouter = express.Router()
 const authRouter = require("./routes/auth")
 const taskRouter = require("./routes/task")
